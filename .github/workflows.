@@ -1,7 +1,5 @@
-# .github/workflows/ci.yml
 name: Python CI
 
-# Определите, когда запускать тесты: при каждом push в любую ветку или pull request
 on: [push, pull_request]
 
 jobs:
@@ -10,17 +8,11 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
-
     steps:
-    # 1. Загружаем код из репозитория
     - uses: actions/checkout@v4
-    
-    # 2. Устанавливаем нужную версию Python
     - name: Установка Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    
-    # 3. Запускаем тесты с помощью unittest
     - name: Запуск unit-тестов
       run: python -m unittest discover -s . -p "test_*.py" -v
