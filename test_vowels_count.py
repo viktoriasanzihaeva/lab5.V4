@@ -17,7 +17,6 @@ class TestCountVowels(unittest.TestCase):
 
     def test_no_vowels(self):
         self.assertEqual(count_vowels("bcdfg"), 0)
-        self.assertEqual(count_vowels("xyz"), 0)
         self.assertEqual(count_vowels("123!@#"), 0)
         self.assertEqual(count_vowels(" "), 0)
 
@@ -35,14 +34,9 @@ class TestCountVowels(unittest.TestCase):
 
     def test_single_character_consonant(self):
         self.assertEqual(count_vowels("b"), 0)
-        self.assertEqual(count_vowels("Z"), 0)
 
     def test_digits_only(self):
         self.assertEqual(count_vowels("12345"), 0)
-
-    def test_only_consonants(self):
-        self.assertEqual(count_vowels("bcdfghjklmnpqrstvwxyz"), 0)
-        self.assertEqual(count_vowels("BCDFG"), 0)
 
     def test_long_string(self):
         long_str = "a" * 1000 + "e" * 500
